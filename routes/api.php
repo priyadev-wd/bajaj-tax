@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleOAuthController;
+use App\Http\Controllers\TriggerAppointmentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('google/calendar/events/webhook', [GoogleOAuthController::class, 'handleWebhook'])->name('calendar.events.handle.webhook');
+Route::post('triggerAppointmentUpdate', [TriggerAppointmentController::class, 'triggerAppointmentUpdate'])->name('triggerAppointmentUpdate');
